@@ -1,3 +1,4 @@
 # Apple-Foundation
 Projeto para o app da apple foundation
-testando
+
+Projetistas: Leandro, André, Pablo e Lucas
