@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
-@main
 
+@main
 struct CapitaesdeAreiaApp: App {
+    @StateObject private var dataController  = DataController()
     var body: some Scene {
         WindowGroup {
              MyPageView()
+                .environment(\.managedObjectContext, dataController.container.viewContext	)
             
         }
     }

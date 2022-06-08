@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MapView: View {
+struct MenuView: View {
     var body: some View {
         VStack{}
     }
@@ -15,6 +15,6 @@ struct MapView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        MenuView()
     }
 }

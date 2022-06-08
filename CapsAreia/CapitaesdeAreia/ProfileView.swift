@@ -12,7 +12,7 @@ struct ProfileView: View {
                 .frame(width: 150, height: 150)
                 .clipShape(Circle())
                 //.overlay(Circle().stroke(Color.white, lineWidth: 5))
-            Text("@User")
+            Text("@Admin")
                 .font(.system(size: 30))
                 .bold()
                 .foregroundColor(.white)

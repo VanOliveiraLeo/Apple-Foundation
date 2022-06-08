@@ -7,28 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		574037812826A6E900176E35 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574037802826A6E900176E35 /* MapView.swift */; };
-		574037832826A70400176E35 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574037822826A70400176E35 /* NewsView.swift */; };
-		574037852826A77C00176E35 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574037842826A77C00176E35 /* ProfileView.swift */; };
-		574D5C61282AE1A1009F7294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 574D5C60282AE1A1009F7294 /* Assets.xcassets */; };
+		57381CEB282FCCFD00B8EF38 /* ResultsCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57381CEA282FCCFD00B8EF38 /* ResultsCViewController.swift */; };
 		57545DA12805EABC00B19B26 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57545DA02805EABC00B19B26 /* MyPageView.swift */; };
-		57BD5AD0284FDD6800484C78 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BD5ACF284FDD6800484C78 /* SwiftUIView.swift */; };
+		576C5F2B28342806004F1505 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C5F2A28342806004F1505 /* ProfileView.swift */; };
+		576C5F2D2834281D004F1505 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C5F2C2834281D004F1505 /* NewsView.swift */; };
+		579AC60D2850D3FB00C2C824 /* testandoBiding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579AC60C2850D3FB00C2C824 /* testandoBiding.swift */; };
+		57C499092826A30600F41AD0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C499082826A30600F41AD0 /* MapView.swift */; };
 		57D915C527FCDD5300715552 /* CapitaesdeAreiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D915C427FCDD5300715552 /* CapitaesdeAreiaApp.swift */; };
 		57D915C727FCDD5300715552 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D915C627FCDD5300715552 /* ContentView.swift */; };
+		57D915C927FCDD5400715552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D915C827FCDD5400715552 /* Assets.xcassets */; };
 		57D915CC27FCDD5400715552 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D915CB27FCDD5400715552 /* Preview Assets.xcassets */; };
+		57FC091B28424D6C00A0109C /* Estados.json in Resources */ = {isa = PBXBuildFile; fileRef = 57FC091A28424D6C00A0109C /* Estados.json */; };
+		57FC092328425FB600A0109C /* BD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57FC092128425FB600A0109C /* BD.xcdatamodeld */; };
+		57FC092528425FE200A0109C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC092428425FE200A0109C /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		574037802826A6E900176E35 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		574037822826A70400176E35 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
-		574037842826A77C00176E35 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		574D5C60282AE1A1009F7294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		57381CEA282FCCFD00B8EF38 /* ResultsCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCViewController.swift; sourceTree = "<group>"; };
 		57545DA02805EABC00B19B26 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
-		57BD5ACF284FDD6800484C78 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		576C5F2A28342806004F1505 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		576C5F2C2834281D004F1505 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		579AC60C2850D3FB00C2C824 /* testandoBiding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testandoBiding.swift; sourceTree = "<group>"; };
+		57C499082826A30600F41AD0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		57C4990A2826B13800F41AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		57D915C127FCDD5300715552 /* CapitaesdeAreia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitaesdeAreia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D915C427FCDD5300715552 /* CapitaesdeAreiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitaesdeAreiaApp.swift; sourceTree = "<group>"; };
 		57D915C627FCDD5300715552 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		57D915C827FCDD5400715552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57D915CB27FCDD5400715552 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		57FC091A28424D6C00A0109C /* Estados.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Estados.json; sourceTree = "<group>"; };
+		57FC092228425FB600A0109C /* BD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BD.xcdatamodel; sourceTree = "<group>"; };
+		57FC092428425FE200A0109C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,15 +70,20 @@
 		57D915C327FCDD5300715552 /* CapitaesdeAreia */ = {
 			isa = PBXGroup;
 			children = (
-				574D5C60282AE1A1009F7294 /* Assets.xcassets */,
+				57C4990A2826B13800F41AD0 /* Info.plist */,
 				57D915C427FCDD5300715552 /* CapitaesdeAreiaApp.swift */,
-				57545DA02805EABC00B19B26 /* MyPageView.swift */,
 				57D915C627FCDD5300715552 /* ContentView.swift */,
-				57BD5ACF284FDD6800484C78 /* SwiftUIView.swift */,
-				574037802826A6E900176E35 /* MapView.swift */,
-				574037822826A70400176E35 /* NewsView.swift */,
-				574037842826A77C00176E35 /* ProfileView.swift */,
+				57545DA02805EABC00B19B26 /* MyPageView.swift */,
+				57C499082826A30600F41AD0 /* MapView.swift */,
+				576C5F2C2834281D004F1505 /* NewsView.swift */,
+				576C5F2A28342806004F1505 /* ProfileView.swift */,
+				57D915C827FCDD5400715552 /* Assets.xcassets */,
 				57D915CA27FCDD5400715552 /* Preview Content */,
+				57381CEA282FCCFD00B8EF38 /* ResultsCViewController.swift */,
+				57FC091A28424D6C00A0109C /* Estados.json */,
+				57FC092128425FB600A0109C /* BD.xcdatamodeld */,
+				57FC092428425FE200A0109C /* DataController.swift */,
+				579AC60C2850D3FB00C2C824 /* testandoBiding.swift */,
 			);
 			path = CapitaesdeAreia;
 			sourceTree = "<group>";
@@ -140,8 +154,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				574D5C61282AE1A1009F7294 /* Assets.xcassets in Resources */,
+				57FC091B28424D6C00A0109C /* Estados.json in Resources */,
 				57D915CC27FCDD5400715552 /* Preview Assets.xcassets in Resources */,
+				57D915C927FCDD5400715552 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,12 +167,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576C5F2B28342806004F1505 /* ProfileView.swift in Sources */,
 				57D915C727FCDD5300715552 /* ContentView.swift in Sources */,
-				57BD5AD0284FDD6800484C78 /* SwiftUIView.swift in Sources */,
-				574037812826A6E900176E35 /* MapView.swift in Sources */,
+				57C499092826A30600F41AD0 /* MapView.swift in Sources */,
+				576C5F2D2834281D004F1505 /* NewsView.swift in Sources */,
+				57FC092528425FE200A0109C /* DataController.swift in Sources */,
+				57381CEB282FCCFD00B8EF38 /* ResultsCViewController.swift in Sources */,
+				57FC092328425FB600A0109C /* BD.xcdatamodeld in Sources */,
 				57D915C527FCDD5300715552 /* CapitaesdeAreiaApp.swift in Sources */,
-				574037832826A70400176E35 /* NewsView.swift in Sources */,
-				574037852826A77C00176E35 /* ProfileView.swift in Sources */,
+				579AC60D2850D3FB00C2C824 /* testandoBiding.swift in Sources */,
 				57545DA12805EABC00B19B26 /* MyPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,9 +307,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CapitaesdeAreia/Preview Content\"";
-				DEVELOPMENT_TEAM = JM8X8CB5DA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CapitaesdeAreia/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -318,9 +337,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CapitaesdeAreia/Preview Content\"";
-				DEVELOPMENT_TEAM = JM8X8CB5DA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CapitaesdeAreia/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to show it on the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -361,6 +381,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		57FC092128425FB600A0109C /* BD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				57FC092228425FB600A0109C /* BD.xcdatamodel */,
+			);
+			currentVersion = 57FC092228425FB600A0109C /* BD.xcdatamodel */;
+			path = BD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 57D915B927FCDD5300715552 /* Project object */;
 }

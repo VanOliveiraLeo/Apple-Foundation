@@ -312,4 +312,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView(selection: .constant(0), annotations: .constant([]))
     }
 }
-// new 31 maio 
+// new 31 maio

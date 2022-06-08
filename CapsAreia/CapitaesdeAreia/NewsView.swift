@@ -2,14 +2,14 @@
 //  NewsView.swift
 //  CapitaesdeAreia
 //
-//  Created by aluno on 07/05/22.
+//  Created by aluno on 17/05/22.
 //
 
 import SwiftUI
 
 struct NewsView: View {
     var body: some View {
-        Text("Pagina para as notícias")
+        Text("Página das notícias")
     }
 }
 
