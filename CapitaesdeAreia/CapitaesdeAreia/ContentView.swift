@@ -1,8 +1,25 @@
 import SwiftUI
+import CoreLocation
+import MapKit
 
 struct ContentView: View {
     
+    @Binding var selection: Int
+    @Binding var annotations: [Place]
+    @State var LocalAfetado = 0
     let numeroDenuncia = "196"
+    var locationManager: CLLocationManager?
+    
+    func VerificarSeEstaEmLocalAfetado() {
+        
+        for i in annotations {
+            if ((locationManager?.location!.coordinate) != nil) {
+                LocalAfetado = 1
+            }
+        }
+        
+    }
+    
     
     var body: some View {
         
@@ -14,52 +31,92 @@ struct ContentView: View {
                         .frame(width: UIScreen.main.bounds.size.width, height: 41, alignment: .center)
                         .offset(y: -15)
                         .font(.system(size: 24, weight: .heavy, design: .default))
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(Color.init(red: 215/255, green: 29/255, blue: 29/255))
-                        .offset(x:150, y:-20)
-
+                    
+                    Button {
+                        let phone = "tel://"
+                        let phoneNumberformatted = phone + numeroDenuncia
+                        guard let url = URL(string: phoneNumberformatted) else {return}
+                        UIApplication.shared.open(url)
+                        
+                    } label: {
+                        
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .resizable()
+                            .foregroundColor(.yellow)
+                            .frame(width: 22, height: 20)
+                            .offset(x: 150, y: -15)
+                        
+                    }
+                    
                 }
                 .frame(width: UIScreen.main.bounds.size.width, height: 147)
                 .background(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                 .overlay(alignment: .init(horizontal: .center, vertical: .top)) {
-                    RoundedRectangle(cornerRadius: 20)
-                        .frame(width: 354, height: 189)
-                        .offset(y: 95)
-                        .foregroundColor(.white)
-                        .offset(y:-35)
-                    VStack{
-                        Spacer()
-                        Image(systemName: "globe.americas.fill")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .offset(x: -100, y: 125)
-                            .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
-                        Text("Status de Risco:")
-                            .font(.system(size: 23, weight: .heavy, design: .default))
-                            .offset(x: 74, y: 5 )
-                            .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
-                        Text("Fora de local afetado")
-                            .offset(x: 80, y:15)
-                            .font(.system(size: 16, weight: .heavy, design: .default))
-                        Text("Por alagamentos ou deslises")
-                            .offset(x: 70, y:15)
-                            .font(.system(size: 14, weight: .regular, design: .default))
-                        Capsule()
-                            .frame(width: 120, height: 35)
-                            .offset(x:80, y: 25)
-                            .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
-                        ZStack{
-                            Text("Saiba mais")
-                                .offset(x:80, y:-7)
-                                .foregroundColor(.white)
-                                .font(.system(size: 12, weight: .heavy, design: .default))
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 354, height: 189)
+                            .offset(y: 95)
+                            .foregroundColor(.white)
+                        VStack{
+                            Spacer()
+                            Image(systemName: "globe.americas.fill")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .offset(x: -100, y: 120)
+                                .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                            Text("Status de Risco:")
+                                .font(.system(size: 23, weight: .heavy, design: .default))
+                                .offset(x: 74)
+                                .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                            
+                            if LocalAfetado == 1{
+                                Text("Local afetado, RUN!")
+                            }
+                            
+                            ZStack{
+                                Button {
+                                    print("alo")
+                                    selection = 2
+                                } label: {
+
+                                    Text("Saiba mais")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 12, weight: .heavy, design: .default))
+                                        .background {
+                                            Capsule()
+                                                .frame(width: 120, height: 35)
+                                                .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                        }
+                                        
+                                    
+                                }
+                                .offset(x:80, y:50)
+                            }
+                            
                         }
                     }
+                    .offset(x: 0)
                 }
                 
                 
                 Spacer()
-                    .frame(height: 140)
+                    .frame(height: 120)
+                
+                Text("Continue denunciando!")
+                    .font(.system(size: 22, weight: .semibold, design: .default))
+                    .frame(width: 300)
+//                    .border(.red)
+                    .offset(x: -52, y: 40)
+                Text("Suas denúncias são importantes para o funcionamento do aplicativo. Veja suas denúncias aqui:")
+                    .font(.system(size: 12, weight: .light, design: .default))
+                    .offset(y:10)
+                    .frame(width: 350)
+//                    .border(.red)
+                    .offset(x: -2, y: 40)
+                    
+                
+                Spacer()
+                    .frame(height:40)
                 
                 VStack(alignment: .center, spacing: 50){
                     ZStack{
@@ -67,28 +124,30 @@ struct ContentView: View {
                             print("OI")
                         } label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 30)
+                                RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 130)
                                     .foregroundColor(Color.init(red: 199/255, green: 199/255, blue: 199/255))
                                 Text("Resumo do perfil")
                                     .foregroundColor(.black)
                                     .font(.system(size: 24, weight: .heavy, design: .default))
-
+                                
                             }
                         }
                     }
+                    
+                    
                     ZStack{
                         Button {
                             print("OI")
                         } label: {
                             ZStack{
-                                RoundedRectangle(cornerRadius: 30)
+                                RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 130)
                                     .foregroundColor(Color.init(red: 199/255, green: 199/255, blue: 199/255))
                                 Text("QUIZ")
                                     .foregroundColor(.black)
                                     .font(.system(size: 24, weight: .heavy, design: .default))
-
+                                
                             }
                         }
                     }
@@ -110,21 +169,82 @@ struct ContentView: View {
                         .frame(height: 40)
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 150, height: 200)
-                                .foregroundColor(.white)
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: 150, height: 200)
+                                    .foregroundColor(.white)
+                                
+                                Text("Rachaduras progressivas")
+                                    .offset(x: 0, y: 40)
+                                    .font(.system(size: 20, weight: .bold, design: .default))
+                            }
+                            .frame(width: 150, height: 200)
+                            //                            .border(.red)
                             
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 150, height: 200)
-                                .foregroundColor(.white)
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: 150, height: 200)
+                                    .foregroundColor(.white)
+                                
+                                Text("Manchas de infiltração")
+                                    .offset(x: 0, y: 40)
+                                    .font(.system(size: 20, weight: .bold, design: .default))
+                            }
+                            .frame(width: 150, height: 200)
+                            //                            .border(.red)
                             
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 150, height: 200)
-                                .foregroundColor(.white)
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: 150, height: 200)
+                                    .foregroundColor(.white)
+                                
+                                Text("Portas envergadas")
+                                    .offset(x: 0, y: 40)
+                                    .font(.system(size: 20, weight: .bold, design: .default))
+                            }
+                            .frame(width: 150, height: 200)
+                            //                            .border(.red)
                             
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: 150, height: 200)
-                                .foregroundColor(.white)
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: 150, height: 200)
+                                    .foregroundColor(.white)
+                                
+                                Text("Árvores inclinando")
+                                    .offset(x: 0, y: 40)
+                                    .font(.system(size: 20, weight: .bold, design: .default))
+                            }
+                            .frame(width: 150, height: 200)
+                            //                            .border(.red)
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: 150, height: 200)
+                                    .foregroundColor(.white)
+                                
+                                Text("Chuvas fortes")
+                                    .offset(x: 0, y: 40)
+                                    .font(.system(size: 20, weight: .bold, design: .default))
+                            }
+                            .frame(width: 150, height: 200)
+                            //                            .border(.red)
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: 150, height: 200)
+                                    .foregroundColor(.white)
+                                
+                                Text("Água barrenta acumulada")
+                                    .offset(x: 0, y: 40)
+                                    .font(.system(size: 20, weight: .bold, design: .default))
+                            }
+                            .frame(width: 150, height: 200)
+                            .border(.red)
+                            
+                            Spacer()
+                                .frame(width: 20, height: 200)
+                            
+                            
                         }
                     }
                     .offset(x: 10, y: -10)
@@ -132,45 +252,45 @@ struct ContentView: View {
                 .offset(x: 0, y: -20)
                 
                 Spacer()
-                    .frame(height: 20)
+                    .frame(height: 100)
                 
-//                VStack{
-//                    ZStack(alignment: .center){
-//                        Button {
-//                            let phone = "tel://"
-//                            let phoneNumberformatted = phone + numeroDenuncia
-//                            guard let url = URL(string: phoneNumberformatted) else {return}
-//                            UIApplication.shared.open(url)
-//                        } label: {
-//                            ZStack{
-//                                RoundedRectangle(cornerRadius: 30)
-//                                    .frame(width: 250, height: 200, alignment: .center)
-//                                    .foregroundColor(Color.init(red: 215/255, green: 29/255, blue: 29/255))
-//                                Text("DISQUE DENÚNCIA")
-//                                    .font(.system(size: 20, weight: .black, design: .default))
-//                                    .foregroundColor(.white)
-//                                    .padding()
-//                                    .offset(x: 0, y: -50)
-//                                
-//                                Text("196")
-//                                    .padding()
-//                                    .font(.system(size: 25, weight: .bold, design: .monospaced))
-//                                    .foregroundColor(.white)
-//                      
-//                                Image(systemName: "exclamationmark.triangle.fill")
-//                                    .resizable()
-//                                    .frame(width: 45, height: 45)
-//                                    .offset(x: 0, y: 45)
-//                                    .foregroundColor(.red)
-//                                
-//                            }
-//                            
-//                        }
-//                        
-//                    }
-//                }
-//                .frame(width: UIScreen.main.bounds.width, height: 200)
-//                .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+                //                VStack{
+                //                    ZStack(alignment: .center){
+                //                        Button {
+                //                            let phone = "tel://"
+                //                            let phoneNumberformatted = phone + numeroDenuncia
+                //                            guard let url = URL(string: phoneNumberformatted) else {return}
+                //                            UIApplication.shared.open(url)
+                //                        } label: {
+                //                            ZStack{
+                //                                RoundedRectangle(cornerRadius: 30)
+                //                                    .frame(width: 250, height: 200, alignment: .center)
+                //                                    .foregroundColor(Color.init(red: 215/255, green: 29/255, blue: 29/255))
+                //                                Text("DISQUE DENÚNCIA")
+                //                                    .font(.system(size: 20, weight: .black, design: .default))
+                //                                    .foregroundColor(.white)
+                //                                    .padding()
+                //                                    .offset(x: 0, y: -50)
+                //
+                //                                Text("196")
+                //                                    .padding()
+                //                                    .font(.system(size: 25, weight: .bold, design: .monospaced))
+                //                                    .foregroundColor(.white)
+                //
+                //                                Image(systemName: "exclamationmark.triangle.fill")
+                //                                    .resizable()
+                //                                    .frame(width: 45, height: 45)
+                //                                    .offset(x: 0, y: 45)
+                //                                    .foregroundColor(.red)
+                //
+                //                            }
+                //
+                //                        }
+                //
+                //                    }
+                //                }
+                //                .frame(width: UIScreen.main.bounds.width, height: 200)
+                //                .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
                 
                 
                 
@@ -187,8 +307,9 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        ContentView()
+        ContentView(selection: .constant(0), annotations: .constant([]))
     }
 }
 // new 31 maio 

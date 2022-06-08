@@ -12,6 +12,7 @@
 		574037852826A77C00176E35 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574037842826A77C00176E35 /* ProfileView.swift */; };
 		574D5C61282AE1A1009F7294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 574D5C60282AE1A1009F7294 /* Assets.xcassets */; };
 		57545DA12805EABC00B19B26 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57545DA02805EABC00B19B26 /* MyPageView.swift */; };
+		57BD5AD0284FDD6800484C78 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BD5ACF284FDD6800484C78 /* SwiftUIView.swift */; };
 		57D915C527FCDD5300715552 /* CapitaesdeAreiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D915C427FCDD5300715552 /* CapitaesdeAreiaApp.swift */; };
 		57D915C727FCDD5300715552 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D915C627FCDD5300715552 /* ContentView.swift */; };
 		57D915CC27FCDD5400715552 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D915CB27FCDD5400715552 /* Preview Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		574037842826A77C00176E35 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		574D5C60282AE1A1009F7294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57545DA02805EABC00B19B26 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		57BD5ACF284FDD6800484C78 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		57D915C127FCDD5300715552 /* CapitaesdeAreia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitaesdeAreia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D915C427FCDD5300715552 /* CapitaesdeAreiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitaesdeAreiaApp.swift; sourceTree = "<group>"; };
 		57D915C627FCDD5300715552 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				57D915C427FCDD5300715552 /* CapitaesdeAreiaApp.swift */,
 				57545DA02805EABC00B19B26 /* MyPageView.swift */,
 				57D915C627FCDD5300715552 /* ContentView.swift */,
+				57BD5ACF284FDD6800484C78 /* SwiftUIView.swift */,
 				574037802826A6E900176E35 /* MapView.swift */,
 				574037822826A70400176E35 /* NewsView.swift */,
 				574037842826A77C00176E35 /* ProfileView.swift */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57D915C727FCDD5300715552 /* ContentView.swift in Sources */,
+				57BD5AD0284FDD6800484C78 /* SwiftUIView.swift in Sources */,
 				574037812826A6E900176E35 /* MapView.swift in Sources */,
 				57D915C527FCDD5300715552 /* CapitaesdeAreiaApp.swift in Sources */,
 				574037832826A70400176E35 /* NewsView.swift in Sources */,

@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
+@main
 
-    @main
 struct CapitaesdeAreiaApp: App {
     var body: some Scene {
         WindowGroup {

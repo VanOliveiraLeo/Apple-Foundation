@@ -13,10 +13,7 @@ struct MapView: View {
     @State var modal = false
     
     
-    let annotations = [
-        Place(name: "Burguer Place", coordinate: CLLocationCoordinate2D(latitude: -3.71845, longitude: -38.5436))
-        
-    ]
+    @Binding var annotations: [Place]
     
     var body: some View {
         
@@ -67,8 +64,6 @@ struct MapView: View {
                                 Image(systemName: "mappin.and.ellipse")
                                     .rotationEffect(Angle(degrees: 0))
                                     .foregroundColor(.red)
-                                
-                                
                                 
                             }
                             
@@ -125,7 +120,7 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        MapView(annotations: .constant([]))
     }
 }
 
