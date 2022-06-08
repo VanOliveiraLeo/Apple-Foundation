@@ -60,14 +60,14 @@ struct MapView: View {
                     
                 }
                 .frame(width: UIScreen.main.bounds.size.width, height: 80)
-                .background(Color.init(red: 25/255, green: 136/255, blue: 58/255))
-                
+                .background(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+
                 VStack{
                     Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: mapget){
                         entity in
                         MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: Double(entity.lat), longitude: (entity.long))){
                             ZStack {
-                                var size = viewModel.circleSize()
+                                let size = viewModel.circleSize()
                                 
                                 Circle()
                                     .foregroundColor(Color.init(red: 255/255, green: 255/255, blue: 0/255, opacity: 0.5))
@@ -389,7 +389,7 @@ struct ModalCadastro: View {
                             HStack{
                                 Image(systemName: "\(checkboxImage[0])")
                                     .animation(.easeInOut(duration: 0.5))
-                                Text("afjdfjdsflk")
+                                Text("Rachaduras progressivas")
                             }
                             .onTapGesture {
                                 if isChecked == false{
@@ -407,7 +407,7 @@ struct ModalCadastro: View {
                             HStack{
                                 Image(systemName: "\(checkboxImage[1])")
                                     .animation(.easeInOut(duration: 0.5))
-                                Text("afjdfjdsflk")
+                                Text("Manchas de infiltração")
                             }
                             .onTapGesture {
                                 if isChecked == false{
@@ -424,7 +424,7 @@ struct ModalCadastro: View {
                             HStack{
                                 Image(systemName: "\(checkboxImage[2])")
                                     .animation(.easeInOut(duration: 0.5))
-                                Text("afjdfjdsflk")
+                                Text("Portas envergadas")
                             }
                             .onTapGesture {
                                 if isChecked == false{
@@ -437,7 +437,57 @@ struct ModalCadastro: View {
                                     checkboxes[2] = (false,"")
                                 }
                             }
-                            
+                            Spacer()
+                            HStack{
+                                Image(systemName: "\(checkboxImage[2])")
+                                    .animation(.easeInOut(duration: 0.5))
+                                Text("Árvores inclinando")
+                            }
+                            .onTapGesture {
+                                if isChecked == false{
+                                    isChecked.toggle()
+                                    checkboxImage[3] = "checkmark.circle.fill"
+                                    checkboxes[3] = (true,"")
+                                } else{
+                                    isChecked.toggle()
+                                    checkboxImage[3] = "circle"
+                                    checkboxes[3] = (false,"")
+                                }
+                            }
+//                            Spacer()
+//                            HStack{
+//                                Image(systemName: "\(checkboxImage[2])")
+//                                    .animation(.easeInOut(duration: 0.5))
+//                                Text("Chuvas fortes")
+//                            }
+//                            .onTapGesture {
+//                                if isChecked == false{
+//                                    isChecked.toggle()
+//                                    checkboxImage[4] = "checkmark.circle.fill"
+//                                    checkboxes[4] = (true,"")
+//                                } else{
+//                                    isChecked.toggle()
+//                                    checkboxImage[4] = "circle"
+//                                    checkboxes[4] = (false,"")
+//                                }
+//                            }
+//                            Spacer()
+//                            HStack{
+//                                Image(systemName: "\(checkboxImage[2])")
+//                                    .animation(.easeInOut(duration: 0.5))
+//                                Text("Água barrenta acumulada")
+//                            }
+//                            .onTapGesture {
+//                                if isChecked == false{
+//                                    isChecked.toggle()
+//                                    checkboxImage[5] = "checkmark.circle.fill"
+//                                    checkboxes[5] = (true,"")
+//                                } else{
+//                                    isChecked.toggle()
+//                                    checkboxImage[5] = "circle"
+//                                    checkboxes[5] = (false,"")
+//                                }
+//                            }
                             
                         }
                         

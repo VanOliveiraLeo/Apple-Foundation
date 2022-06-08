@@ -12,7 +12,7 @@ struct ContentView: View {
     
     func VerificarSeEstaEmLocalAfetado() {
         
-        for i in annotations {
+        for _ in annotations {
             if ((locationManager?.location!.coordinate) != nil) {
                 LocalAfetado = 1
             }
@@ -44,16 +44,16 @@ struct ContentView: View {
                             .resizable()
                             .foregroundColor(.yellow)
                             .frame(width: 22, height: 20)
-                            .offset(x: 150, y: -15)
                         
                     }
+                    .offset(x: 150, y: -15)
                     
                 }
                 .frame(width: UIScreen.main.bounds.size.width, height: 147)
                 .background(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                 .overlay(alignment: .init(horizontal: .center, vertical: .top)) {
                     ZStack{
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: 15)
                             .frame(width: 354, height: 189)
                             .offset(y: 95)
                             .foregroundColor(.white)
@@ -75,10 +75,9 @@ struct ContentView: View {
                             
                             ZStack{
                                 Button {
-                                    print("alo")
                                     selection = 2
                                 } label: {
-
+                                    
                                     Text("Saiba mais")
                                         .foregroundColor(.white)
                                         .font(.system(size: 12, weight: .heavy, design: .default))
@@ -87,7 +86,7 @@ struct ContentView: View {
                                                 .frame(width: 120, height: 35)
                                                 .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                                         }
-                                        
+                                    
                                     
                                 }
                                 .offset(x:80, y:50)
@@ -105,31 +104,51 @@ struct ContentView: View {
                 Text("Continue denunciando!")
                     .font(.system(size: 22, weight: .semibold, design: .default))
                     .frame(width: 300)
-//                    .border(.red)
-                    .offset(x: -52, y: 40)
+                //                    .border(.red)
+                    .offset(x: -55, y: 40)
                 Text("Suas denúncias são importantes para o funcionamento do aplicativo. Veja suas denúncias aqui:")
                     .font(.system(size: 12, weight: .light, design: .default))
                     .offset(y:10)
                     .frame(width: 350)
-//                    .border(.red)
-                    .offset(x: -2, y: 40)
-                    
+                //                    .border(.red)
+                    .offset(x: -5, y: 40)
+                
                 
                 Spacer()
-                    .frame(height:40)
+                    .frame(height:30)
                 
                 VStack(alignment: .center, spacing: 50){
                     ZStack{
                         Button {
-                            print("OI")
+                            selection = 4
                         } label: {
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(height: 130)
-                                    .foregroundColor(Color.init(red: 199/255, green: 199/255, blue: 199/255))
-                                Text("Resumo do perfil")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 24, weight: .heavy, design: .default))
+                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+
+                                HStack{
+                                    Image(systemName: "person.circle")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .offset(x:-20)
+                                        .foregroundColor(.white)
+                                    
+                                    VStack{
+                                    Text("0 Denuncias")
+                                        .font(.system(size: 25, weight: .bold, design: .default))
+                                        .foregroundColor(.white)
+                                        .offset(x:10)
+
+                                    Text("há 56 dias!")
+                                        .font(.system(size: 25, weight: .bold, design: .default))
+                                        .foregroundColor(.white)
+                                        .offset(x:20)
+                                    }
+                                    
+                                    
+                                }
+                                
                                 
                             }
                         }
@@ -239,7 +258,6 @@ struct ContentView: View {
                                     .font(.system(size: 20, weight: .bold, design: .default))
                             }
                             .frame(width: 150, height: 200)
-                            .border(.red)
                             
                             Spacer()
                                 .frame(width: 20, height: 200)
