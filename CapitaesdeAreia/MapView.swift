@@ -71,13 +71,12 @@ struct MapView: View {
                                 var size = viewModel.circleSize()
                                 
                                 Circle()
-                                    .foregroundColor(Color.init(red: 255/255, green: 255/255, blue: 0/255, opacity: 0.5))
+                                    .foregroundColor(Color.init(red: 0/255, green: 255/255, blue: 0/255, opacity: 0.2))
                                     .frame(width: size.0, height: size.1)
 //                                    .animation(.linear)
-                                
-                                Image(systemName: "mappin.and.ellipse")
-                                    .rotationEffect(Angle(degrees: 0))
-                                    .foregroundColor(.red)
+                                `
+                                SimboloMapas()
+                                    
                                 
                             }
                             

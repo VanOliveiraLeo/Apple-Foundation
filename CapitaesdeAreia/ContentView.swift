@@ -16,6 +16,10 @@ struct ContentView: View {
     
     func VerSeTaNoLocalAfetado() -> some View {
         
+        if annotations.count == 1 && annotations[0].coordinate.latitude != -3.71845{
+            return Text("FORA DE RISCO").foregroundColor(.green).font(.system(size: 20, weight: .bold, design: .default))
+        }
+        
         for user in userlocation{
             for note in annotations {
                 print("BD: \(user.userLat!)")
@@ -24,6 +28,8 @@ struct ContentView: View {
                 if String(note.coordinate.latitude) == user.userLat!{
                     return Text("LOCAL AFETADO").foregroundColor(.red).font(.system(size: 20, weight: .bold, design: .default))
                     
+                }else{
+                    return Text("FORA DE RISCO").foregroundColor(.green).font(.system(size: 20, weight: .bold, design: .default))
                 }
             }
         }

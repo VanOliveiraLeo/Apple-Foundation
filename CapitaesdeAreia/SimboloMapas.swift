@@ -10,13 +10,23 @@ import SwiftUI
 struct SimboloMapas: View {
     var body: some View {
         
-        ZStack{
-            Image(systemName: "map.circle.fill")
+        ZStack(alignment: .center){
+            Circle()
+                .frame(width: 20, height: 20)
+                .foregroundColor(.red)
+            Image(systemName: "triangle.fill")
                 .resizable()
-                .frame(width: 100, height: 100)
-            Image("triangle.fill")
-            
+                .frame(width: 14, height: 11)
+                .rotationEffect(.degrees(180))
+                .foregroundColor(.red)
+                .offset(y: 10.8)
+            Image(systemName: "triangle.fill")
+                .resizable()
+                .frame(width: 10, height: 10)
+                .colorInvert()
+                
         }
+        
         
         
     }

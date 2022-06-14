@@ -11,20 +11,20 @@ struct TelaLogin: View {
     var icons = ["house.fill","map.fill", "newspaper.fill", "person.fill" ]
     @State var imageSelected =  UIImage(named: "profile")!
     let greenColor: Color = Color.init(red: 67/255, green: 151/255, blue: 117/255)
-
+    
     var profileHeader: some View {
         VStack(spacing: 10) {
-//            Image(uiImage: imageSelected)
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: 150, height: 150)
-//                .clipShape(Circle())
+            //            Image(uiImage: imageSelected)
+            //                .resizable()
+            //                .scaledToFit()
+            //                .frame(width: 150, height: 150)
+            //                .clipShape(Circle())
             Image(uiImage: imageSelected)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 150, height: 150)
                 .clipShape(Circle())
-                //.overlay(Circle().stroke(Color.white, lineWidth: 5))
+            //.overlay(Circle().stroke(Color.white, lineWidth: 5))
             Text("@Profile")
                 .font(.system(size: 30))
                 .bold()
@@ -42,7 +42,7 @@ struct TelaLogin: View {
                 startPoint: .top,
                 endPoint: .bottom
             )
-            .frame(height: 100)
+                .frame(height: 100)
             
             Text("PERFIL")
                 .font(.system(size: 24, weight: .heavy, design: .default))
@@ -153,7 +153,7 @@ struct TelaLogin: View {
 
 struct ImageIcon: View {
     var imageName: String
-
+    
     var body: some View {
         Image(systemName: imageName)
             .resizable()
