@@ -71,7 +71,7 @@ struct SettingsView: View {
                                 ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
                             }
                         }
-                        Text("Ao acionar a imagem ao lado, poderá selecionar uma imagem para seu perfil")
+                        Text("Selecione aqui uma imagem para o seu perfil")
                             .font(.callout)
                             .foregroundColor(.secondary)
                     }

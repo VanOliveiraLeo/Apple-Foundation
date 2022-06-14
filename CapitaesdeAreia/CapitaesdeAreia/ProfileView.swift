@@ -89,13 +89,15 @@ struct TelaLogin: View {
                     }
                     
                 }
+                Spacer()
+                    .frame(height: 16)
                 
                 ZStack (alignment: .leading){
                     Rectangle()
                         .fill(Color.white)
                         .frame(height: UIScreen.main.bounds.height * 0.4)
                         .offset(y: 150)
-                    VStack(alignment: .leading, spacing: 20){
+                    VStack(alignment: .leading, spacing: 10){
                         
                         Button(action: {}) {
                             Text(" INFORMAÇÕES PESSOAIS")
@@ -105,6 +107,7 @@ struct TelaLogin: View {
                             Image(systemName: "chevron.right")
                                 .padding()
                         }
+                        Divider()
                         Button(action: {}) {
                             Text("AJUDA")
                                 .font(.system(size: 22, weight: .regular, design: .default))
@@ -112,6 +115,7 @@ struct TelaLogin: View {
                             Image(systemName: "chevron.right")
                                 .padding()
                         }
+                        Divider()
                         //Button(action: {(destination: SettingsView())}) {
                         //Text(" CONFIGURAÇÕES")
                         //}
@@ -126,6 +130,7 @@ struct TelaLogin: View {
                                 .padding()
                                 .foregroundColor(.black)
                         })
+                        Divider()
                         
                         Button(action: {}) {
                             Text(" CRÉDITOS")
@@ -143,7 +148,7 @@ struct TelaLogin: View {
             }
             .ignoresSafeArea()
             Spacer()
-                .frame(width: UIScreen.main.bounds.size.width, height: 20)
+                .frame(width: UIScreen.main.bounds.size.width, height: 25)
         }
         .navigationBarHidden(true)
         .ignoresSafeArea(.all)

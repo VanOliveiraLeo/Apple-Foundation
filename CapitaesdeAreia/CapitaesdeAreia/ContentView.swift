@@ -70,10 +70,10 @@ struct ContentView: View {
                             .foregroundColor(.white)
                         VStack{
                             Spacer()
-                            Image(systemName: "globe.americas.fill")
+                            Image("danger")
                                 .resizable()
-                                .frame(width: 100, height: 100)
-                                .offset(x: -100, y: 120)
+                                .frame(width: 110, height: 110)
+                                .offset(x: -90, y: 130)
                                 .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                             Text("Status de Risco:")
                                 .font(.system(size: 23, weight: .heavy, design: .default))
@@ -134,7 +134,7 @@ struct ContentView: View {
                 
                 
                 Spacer()
-                    .frame(height:40)
+                    .frame(height:20)
                 
                 VStack(alignment: .center, spacing: 30){
                     ZStack{
@@ -196,7 +196,7 @@ struct ContentView: View {
                                         .foregroundColor(.white)
                                     
                                     VStack{
-                                        Text("8/10")
+                                        Text("5/7 acertos")
                                             .font(.system(size: 30, weight: .bold, design: .default))
                                             .foregroundColor(.white)
                                             .offset(x:10)
@@ -221,7 +221,7 @@ struct ContentView: View {
                 
                 VStack{
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: 0)
                     Text("SINAIS DE RISCO")
                         .font(.system(size: 22, weight: .bold, design: .rounded))
                         .offset(x: -80, y: 0)
@@ -234,8 +234,14 @@ struct ContentView: View {
                                     .frame(width: 150, height: 200)
                                     .foregroundColor(.white)
                                 
+                                Image("rachadura")
+                                    .resizable()
+//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .frame(width: 90, height: 90)
+                                    .offset(y:-30)
+                                
                                 Text("Rachaduras progressivas")
-                                    .offset(x: 0, y: 40)
+                                    .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
                             }
                             .frame(width: 150, height: 200)
@@ -245,9 +251,15 @@ struct ContentView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(width: 150, height: 200)
                                     .foregroundColor(.white)
+                                
+                                Image(systemName: "drop.circle.fill")
+                                    .resizable()
+//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .frame(width: 90, height: 90)
+                                    .offset(y:-30)
                                 
                                 Text("Manchas de infiltração")
-                                    .offset(x: 0, y: 40)
+                                    .offset(y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
                             }
                             .frame(width: 150, height: 200)
@@ -257,9 +269,15 @@ struct ContentView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(width: 150, height: 200)
                                     .foregroundColor(.white)
+                                
+                                Image("door")
+                                    .resizable()
+//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .frame(width: 90, height: 90)
+                                    .offset(y:-35)
                                 
                                 Text("Portas envergadas")
-                                    .offset(x: 0, y: 40)
+                                    .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
                             }
                             .frame(width: 150, height: 200)
@@ -269,9 +287,15 @@ struct ContentView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(width: 150, height: 200)
                                     .foregroundColor(.white)
+                                
+                                Image("tree")
+                                    .resizable()
+//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .frame(width: 90, height: 90)
+                                    .offset(y:-35)
                                 
                                 Text("Árvores inclinando")
-                                    .offset(x: 0, y: 40)
+                                    .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
                             }
                             .frame(width: 150, height: 200)
@@ -282,8 +306,14 @@ struct ContentView: View {
                                     .frame(width: 150, height: 200)
                                     .foregroundColor(.white)
                                 
-                                Text("Chuvas fortes")
-                                    .offset(x: 0, y: 40)
+                                Image(systemName: "cloud.bolt.rain.fill")
+                                    .resizable()
+//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .frame(width: 90, height: 90)
+                                    .offset(y:-35)
+
+                                Text("Chuvas \nfortes")
+                                    .offset(x: -15, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
                             }
                             .frame(width: 150, height: 200)
@@ -293,11 +323,16 @@ struct ContentView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(width: 150, height: 200)
                                     .foregroundColor(.white)
+                                
+                                Image(systemName: "drop.triangle")
+                                    .resizable()
+//                                    .foregroundColor(Color.init(red: 170/255, green: 121/255, blue: 66/255))
+                                    .frame(width: 90, height: 90)
+                                    .offset(y:-35)
                                 
                                 Text("Água barrenta acumulada")
-                                    .offset(x: 0, y: 40)
+                                    .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
-                            }
                             .frame(width: 150, height: 200)
                             //                            .border(.red)
                             
@@ -366,6 +401,7 @@ struct ContentView: View {
         
         
     }
+        .ignoresSafeArea()
     
 }
 
@@ -377,3 +413,4 @@ struct ContentView_Previews: PreviewProvider {
 }
 // new 31 maio
 
+}
