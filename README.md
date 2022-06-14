@@ -1,3 +1,3 @@
 # Apple-Foundation
 Projeto para o app da apple foundation
-testando
+colaboradores : André, Leandro, Lucas e Pablo
