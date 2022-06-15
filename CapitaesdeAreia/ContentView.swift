@@ -3,35 +3,53 @@ import CoreLocation
 import MapKit
 
 struct ContentView: View {
+
+@Binding var selection: Int
+@Binding var annotations: [Place]
+@State var LocalAfetado = 0
+@State var color: Color = Color.init(red: 67/255, green: 151/255, blue: 117/255)
+@State var Imagem: String = "custom.globe.americas.fill"
+@State var localAfetadoFlag: Bool = false
+let numeroDenuncia = "196"
+@State var presentQuiz: Bool = false
+@State var score: Int
+
+@State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
+
+
+@FetchRequest(sortDescriptors: []) var userlocation: FetchedResults<MapEntity>
+
+func VerSeTaNoLocalAfetado() {
     
-    @Binding var selection: Int
-    @Binding var annotations: [Place]
-    @State var LocalAfetado = 0
-    let numeroDenuncia = "196"
+    if annotations.count <= 1 && userlocation.isEmpty == true{
+        Imagem = "custom.globe.americas.fill"
+        localAfetadoFlag = false
+    }
     
-    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
-    
-    
-    @FetchRequest(sortDescriptors: []) var userlocation: FetchedResults<MapEntity>
-    
-    func VerSeTaNoLocalAfetado() -> some View {
-        
-        for user in userlocation{
-            for note in annotations {
-                print("BD: \(user.userLat!)")
-                print("lista: \(String(note.coordinate.latitude)), logitude: \(note.coordinate.longitude)")
+    for user in userlocation{
+        for note in annotations {
+            print("BD: \(user.userLat!)")
+            print("lista: \(String(note.coordinate.latitude)), logitude: \(note.coordinate.longitude)")
+            
+            if String(note.coordinate.latitude) == user.userLat!{
+                Imagem = "danger"
+                color = Color.red
+                localAfetadoFlag = true
+                //return Text("LOCAL AFETADO").foregroundColor(.red).font(.system(size: 20, weight: .bold, design: .default))
                 
-                if String(note.coordinate.latitude) == user.userLat!{
-                    return Text("LOCAL AFETADO").foregroundColor(.red).font(.system(size: 20, weight: .bold, design: .default))
-                    
-                }
+            }else{
+                Imagem = "custom.globe.americas.fill"
+                color = Color.init(red: 67/255, green: 151/255, blue: 117/255)
+                localAfetadoFlag = false
+                //return Text("FORA DE RISCO").foregroundColor(.green).font(.system(size: 20, weight: .bold, design: .default))
             }
         }
-        return Text("")
     }
-    var RetornoNaoSeiPq: Int = 0
-    
-    var body: some View {
+}
+var RetornoNaoSeiPq: Int = 0
+
+var body: some View {
+    NavigationView {
         
         ScrollView{
             VStack{
@@ -70,11 +88,11 @@ struct ContentView: View {
                             .foregroundColor(.white)
                         VStack{
                             Spacer()
-                            Image("danger")
+                            Image("\(Imagem)")
                                 .resizable()
-                                .frame(width: 110, height: 110)
-                                .offset(x: -90, y: 130)
-                                .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                .frame(width: 100, height: 100)
+                                .offset(x: -100, y: 120)
+                                .foregroundColor(color)
                             Text("Status de Risco:")
                                 .font(.system(size: 23, weight: .heavy, design: .default))
                                 .offset(x: 74)
@@ -82,9 +100,11 @@ struct ContentView: View {
                             
                             
                             
-                            VerSeTaNoLocalAfetado()
+                            Text(localAfetadoFlag ? "LOCAL AFETADO" : "FORA DE RISCO")
+                                .foregroundColor(localAfetadoFlag ? .red : .green)
+                                .font(.system(size: 20, weight: .bold, design: .default))
                                 .position(x: 270, y: 20)
-                    
+                            
                             
                             
                             
@@ -121,7 +141,7 @@ struct ContentView: View {
                     .frame(height: 120)
                 
                 Text("Continue denunciando!")
-                    .font(.system(size: 22, weight: .semibold, design: .default))
+                    .font(.system(size: 22, weight: .bold, design: .default))
                     .frame(width: 300)
                 //                    .border(.red)
                     .offset(x: -52, y: 40)
@@ -134,7 +154,7 @@ struct ContentView: View {
                 
                 
                 Spacer()
-                    .frame(height:20)
+                    .frame(height:40)
                 
                 VStack(alignment: .center, spacing: 30){
                     ZStack{
@@ -162,14 +182,14 @@ struct ContentView: View {
                                             .offset(x: 20)
                                     }
                                 }
-                            
-                            }
                                 
                             }
+                            
+                        }
                     }
                     VStack{
                         Text("Faça o quiz!")
-                            .font(.system(size: 22, weight: .semibold, design: .default))
+                            .font(.system(size: 22, weight: .bold, design: .default))
                             .frame(width: 300)
                             .offset(x: -106)
                         Text("Teste seus conhecimentos para denunciar corretamente!")
@@ -177,12 +197,12 @@ struct ContentView: View {
                             .offset(x: -6, y: 6)
                             .frame(width: 350)
                         
-                            
+                        
                         
                     }
                     ZStack{
                         Button {
-                            print("OI")
+                            presentQuiz = true
                         } label: {
                             ZStack{
                                 RoundedRectangle(cornerRadius: 10)
@@ -196,20 +216,24 @@ struct ContentView: View {
                                         .foregroundColor(.white)
                                     
                                     VStack{
-                                        Text("5/7 acertos")
+                                        Text("\(score)/7")
                                             .font(.system(size: 30, weight: .bold, design: .default))
                                             .foregroundColor(.white)
                                             .offset(x:10)
-                                        Text("Parabéns!")
+                                        Text(score >= 4 ? "Parabéns!" : "Tente de novo!")
                                             .font(.system(size: 25, weight: .bold, design: .default))
                                             .foregroundColor(.white)
                                             .offset(x: 20)
                                     }
                                 }
-                               
+                                
                                 
                             }
                         }
+
+    
+                        
+                        
                     }
                     
                     
@@ -221,7 +245,7 @@ struct ContentView: View {
                 
                 VStack{
                     Spacer()
-                        .frame(height: 0)
+                        .frame(height: 20)
                     Text("SINAIS DE RISCO")
                         .font(.system(size: 22, weight: .bold, design: .rounded))
                         .offset(x: -80, y: 0)
@@ -236,13 +260,16 @@ struct ContentView: View {
                                 
                                 Image("rachadura")
                                     .resizable()
-//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                                     .frame(width: 90, height: 90)
-                                    .offset(y:-30)
+                                    .offset(y:-35)
+                                    
                                 
                                 Text("Rachaduras progressivas")
                                     .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
+                                    .frame(width: 150, height: 200)
+                                
                             }
                             .frame(width: 150, height: 200)
                             //                            .border(.red)
@@ -254,13 +281,14 @@ struct ContentView: View {
                                 
                                 Image(systemName: "drop.circle.fill")
                                     .resizable()
-//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                                     .frame(width: 90, height: 90)
-                                    .offset(y:-30)
+                                    .offset(y:-35)
                                 
                                 Text("Manchas de infiltração")
-                                    .offset(y: 50)
+                                    .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
+                                    .frame(width: 150, height: 200)
                             }
                             .frame(width: 150, height: 200)
                             //                            .border(.red)
@@ -272,13 +300,14 @@ struct ContentView: View {
                                 
                                 Image("door")
                                     .resizable()
-//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                                     .frame(width: 90, height: 90)
                                     .offset(y:-35)
                                 
                                 Text("Portas envergadas")
                                     .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
+                                    .frame(width: 150, height: 200)
                             }
                             .frame(width: 150, height: 200)
                             //                            .border(.red)
@@ -290,13 +319,14 @@ struct ContentView: View {
                                 
                                 Image("tree")
                                     .resizable()
-//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                                     .frame(width: 90, height: 90)
                                     .offset(y:-35)
                                 
                                 Text("Árvores inclinando")
                                     .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
+                                    .frame(width: 150, height: 200)
                             }
                             .frame(width: 150, height: 200)
                             //                            .border(.red)
@@ -308,16 +338,16 @@ struct ContentView: View {
                                 
                                 Image(systemName: "cloud.bolt.rain.fill")
                                     .resizable()
-//                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
+                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                                     .frame(width: 90, height: 90)
                                     .offset(y:-35)
-
-                                Text("Chuvas \nfortes")
-                                    .offset(x: -15, y: 50)
+                                
+                                Text("Chuvas fortes")
+                                    .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
+                                    .frame(width: 150, height: 200)
                             }
                             .frame(width: 150, height: 200)
-                            //                            .border(.red)
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 20)
@@ -326,13 +356,15 @@ struct ContentView: View {
                                 
                                 Image(systemName: "drop.triangle")
                                     .resizable()
-//                                    .foregroundColor(Color.init(red: 170/255, green: 121/255, blue: 66/255))
+                                    .foregroundColor(Color.init(red: 67/255, green: 151/255, blue: 117/255))
                                     .frame(width: 90, height: 90)
                                     .offset(y:-35)
                                 
                                 Text("Água barrenta acumulada")
                                     .offset(x: 0, y: 50)
                                     .font(.system(size: 20, weight: .bold, design: .default))
+                                    .frame(width: 150, height: 200)
+                            }
                             .frame(width: 150, height: 200)
                             //                            .border(.red)
                             
@@ -349,46 +381,6 @@ struct ContentView: View {
                 Spacer()
                     .frame(height:60)
                 
-                //                VStack{
-                //                    ZStack(alignment: .center){
-                //                        Button {
-                //                            let phone = "tel://"
-                //                            let phoneNumberformatted = phone + numeroDenuncia
-                //                            guard let url = URL(string: phoneNumberformatted) else {return}
-                //                            UIApplication.shared.open(url)
-                //                        } label: {
-                //                            ZStack{
-                //                                RoundedRectangle(cornerRadius: 30)
-                //                                    .frame(width: 250, height: 200, alignment: .center)
-                //                                    .foregroundColor(Color.init(red: 215/255, green: 29/255, blue: 29/255))
-                //                                Text("DISQUE DENÚNCIA")
-                //                                    .font(.system(size: 20, weight: .black, design: .default))
-                //                                    .foregroundColor(.white)
-                //                                    .padding()
-                //                                    .offset(x: 0, y: -50)
-                //
-                //                                Text("196")
-                //                                    .padding()
-                //                                    .font(.system(size: 25, weight: .bold, design: .monospaced))
-                //                                    .foregroundColor(.white)
-                //
-                //                                Image(systemName: "exclamationmark.triangle.fill")
-                //                                    .resizable()
-                //                                    .frame(width: 45, height: 45)
-                //                                    .offset(x: 0, y: 45)
-                //                                    .foregroundColor(.red)
-                //
-                //                            }
-                //
-                //                        }
-                //
-                //                    }
-                //                }
-                //                .frame(width: UIScreen.main.bounds.width, height: 200)
-                //                .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
-                
-                
-                
                 
                 
             }
@@ -396,21 +388,29 @@ struct ContentView: View {
             
         }
         .ignoresSafeArea()
+        .navigationBarHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color.init(red: 235/255, green: 235/255, blue: 235/255))
-        
-        
+        .sheet(isPresented: $presentQuiz) {
+        } content: {
+            QuizView(score: $score)
+        }
+        .onAppear() {
+            VerSeTaNoLocalAfetado()
+        }
     }
-        .ignoresSafeArea()
     
+    
+}
+    
+
 }
 
 struct ContentView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        ContentView(selection: .constant(0), annotations: .constant([]))
-    }
+
+static var previews: some View {
+    ContentView(selection: .constant(0), annotations: .constant([]), score: 0)
+}
 }
 // new 31 maio
 
-}

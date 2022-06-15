@@ -23,31 +23,12 @@ struct SettingsView: View {
                 .ignoresSafeArea()
             Form {
                 
-                //navigation text
-                //                    NavigationLink(destination: TelaLogin(imageSelected: imageSelected), label: {
-                //                        Text("Proxima tela")
-                //                            .bold()
-                //                            .foregroundColor(.blue)
-                //                            .cornerRadius(10)
-                //                    })
-                //
                 Section {
                     
                     HStack(alignment: .center, spacing: 20) {
                         
-                        //                        Image("profile")
-                        //                            .resizable()
-                        //                            .frame(width: 50, height: 50)
-                        //                            .cornerRadius(100)
-                        
                         VStack {
                             ZStack(alignment: .bottomTrailing){
-                                //                                    Button("Trocar imagem de perfil"){
-                                //
-                                //                                    }.font(.callout)
-                                //                            Text("")
-                                //                                .font(.caption)
-                                //                                .foregroundColor(.secondary)
                                 
                                 Button(action: {
                                     changeProfileImage = true
