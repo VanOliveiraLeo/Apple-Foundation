@@ -1,4 +1,6 @@
-# Apple-Foundation
-Projeto para o app da apple foundation
+# App IOS 
+Projeto feito no Apple Foundation em 2022.1
+O app desenvolvido tem como objetivo minimizar os impactos causados pelos desmoronamentos
+e ajudar as pessoas a se protegerem
 
-colaboradores : André, Leandro, Lucas e Pablo
+Colaboradores: André Moura, Leandro Oliveira, Pablo Santiago e Lucas Saturnino
