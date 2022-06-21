@@ -113,7 +113,6 @@ struct TelaLogin: View {
                             Button(action: {}) {
                                 Text(" AJUDA")
                                     .font(.system(size: 22, weight: .regular, design: .default))
-                                    .padding()
                                 Spacer()
                                 Image(systemName: "chevron.right")
                                     .padding()

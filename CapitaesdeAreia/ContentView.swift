@@ -10,7 +10,7 @@ struct ContentView: View {
 @State var color: Color = Color.init(red: 67/255, green: 151/255, blue: 117/255)
 @State var Imagem: String = "custom.globe.americas.fill"
 @State var localAfetadoFlag: Bool = false
-let numeroDenuncia = "196"
+let numeroDenuncia = "199"
 @State var presentQuiz: Bool = false
 @State var score: Int
 
@@ -36,6 +36,15 @@ func VerSeTaNoLocalAfetado() {
                 color = Color.red
                 localAfetadoFlag = true
                 //return Text("LOCAL AFETADO").foregroundColor(.red).font(.system(size: 20, weight: .bold, design: .default))
+                let content = UNMutableNotificationContent()
+                content.title = "VOCÊ ESTÁ EM UM LOCAL ARRISCADO"
+                content.subtitle = "Cuidado!"
+                content.sound = UNNotificationSound.default
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+                
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request)
                 
             }else{
                 Imagem = "custom.globe.americas.fill"
@@ -396,10 +405,19 @@ var body: some View {
             QuizView(score: $score)
         }
         .onAppear() {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                if success {
+                    print("All set")
+                }else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
             VerSeTaNoLocalAfetado()
+                
+
         }
     }
-    
+        
     
 }
     
