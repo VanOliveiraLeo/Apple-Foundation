@@ -29,7 +29,7 @@ struct MyPageView: View{
     
     var body: some View {
         TabView(selection: $selection) {
-            ContentView(selection: $selection, annotations: $annotations)
+            ContentView(selection: $selection, annotations: $annotations, score: 0)
                 .tabItem{
                     Image(systemName: "house").renderingMode(.template)
                     Text("Início")

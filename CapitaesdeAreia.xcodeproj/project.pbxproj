@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5724C7B52858FCBC00A5EC27 /* SimboloMapas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5724C7B42858FCBC00A5EC27 /* SimboloMapas.swift */; };
+		572CF2DF285A012E00E5A75F /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572CF2DE285A012E00E5A75F /* FinalView.swift */; };
+		572CF2E1285A013800E5A75F /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572CF2E0285A013800E5A75F /* QuizModel.swift */; };
+		572CF2E3285A014000E5A75F /* QuizQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572CF2E2285A013F00E5A75F /* QuizQuestions.swift */; };
+		572CF2E5285A014800E5A75F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572CF2E4285A014800E5A75F /* QuizView.swift */; };
+		573577EA2859250800C3578B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 573577E92859250800C3578B /* Assets.xcassets */; };
 		57381CEB282FCCFD00B8EF38 /* ResultsCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57381CEA282FCCFD00B8EF38 /* ResultsCViewController.swift */; };
 		573F118D2858B8220034D58B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F118C2858B8220034D58B /* SettingsView.swift */; };
 		573F118F2858B87E0034D58B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573F118E2858B87E0034D58B /* ImagePicker.swift */; };
@@ -18,7 +23,6 @@
 		57C499092826A30600F41AD0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C499082826A30600F41AD0 /* MapView.swift */; };
 		57D915C527FCDD5300715552 /* CapitaesdeAreiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D915C427FCDD5300715552 /* CapitaesdeAreiaApp.swift */; };
 		57D915C727FCDD5300715552 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D915C627FCDD5300715552 /* ContentView.swift */; };
-		57D915C927FCDD5400715552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D915C827FCDD5400715552 /* Assets.xcassets */; };
 		57D915CC27FCDD5400715552 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D915CB27FCDD5400715552 /* Preview Assets.xcassets */; };
 		57FC091B28424D6C00A0109C /* Estados.json in Resources */ = {isa = PBXBuildFile; fileRef = 57FC091A28424D6C00A0109C /* Estados.json */; };
 		57FC092328425FB600A0109C /* BD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57FC092128425FB600A0109C /* BD.xcdatamodeld */; };
@@ -27,6 +31,11 @@
 
 /* Begin PBXFileReference section */
 		5724C7B42858FCBC00A5EC27 /* SimboloMapas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimboloMapas.swift; sourceTree = "<group>"; };
+		572CF2DE285A012E00E5A75F /* FinalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
+		572CF2E0285A013800E5A75F /* QuizModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
+		572CF2E2285A013F00E5A75F /* QuizQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizQuestions.swift; sourceTree = "<group>"; };
+		572CF2E4285A014800E5A75F /* QuizView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		573577E92859250800C3578B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../Downloads/Assets.xcassets; sourceTree = "<group>"; };
 		57381CEA282FCCFD00B8EF38 /* ResultsCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCViewController.swift; sourceTree = "<group>"; };
 		573F118C2858B8220034D58B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		573F118E2858B87E0034D58B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -39,7 +48,6 @@
 		57D915C127FCDD5300715552 /* CapitaesdeAreia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitaesdeAreia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D915C427FCDD5300715552 /* CapitaesdeAreiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitaesdeAreiaApp.swift; sourceTree = "<group>"; };
 		57D915C627FCDD5300715552 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		57D915C827FCDD5400715552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57D915CB27FCDD5400715552 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		57FC091A28424D6C00A0109C /* Estados.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Estados.json; sourceTree = "<group>"; };
 		57FC092228425FB600A0109C /* BD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BD.xcdatamodel; sourceTree = "<group>"; };
@@ -85,7 +93,11 @@
 				576C5F2A28342806004F1505 /* ProfileView.swift */,
 				573F118C2858B8220034D58B /* SettingsView.swift */,
 				573F118E2858B87E0034D58B /* ImagePicker.swift */,
-				57D915C827FCDD5400715552 /* Assets.xcassets */,
+				572CF2DE285A012E00E5A75F /* FinalView.swift */,
+				572CF2E0285A013800E5A75F /* QuizModel.swift */,
+				572CF2E2285A013F00E5A75F /* QuizQuestions.swift */,
+				572CF2E4285A014800E5A75F /* QuizView.swift */,
+				573577E92859250800C3578B /* Assets.xcassets */,
 				57D915CA27FCDD5400715552 /* Preview Content */,
 				57381CEA282FCCFD00B8EF38 /* ResultsCViewController.swift */,
 				57FC091A28424D6C00A0109C /* Estados.json */,
@@ -165,7 +177,7 @@
 			files = (
 				57FC091B28424D6C00A0109C /* Estados.json in Resources */,
 				57D915CC27FCDD5400715552 /* Preview Assets.xcassets in Resources */,
-				57D915C927FCDD5400715552 /* Assets.xcassets in Resources */,
+				573577EA2859250800C3578B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,16 +190,20 @@
 			files = (
 				576C5F2B28342806004F1505 /* ProfileView.swift in Sources */,
 				57D915C727FCDD5300715552 /* ContentView.swift in Sources */,
+				572CF2E3285A014000E5A75F /* QuizQuestions.swift in Sources */,
 				57C499092826A30600F41AD0 /* MapView.swift in Sources */,
 				576C5F2D2834281D004F1505 /* NewsView.swift in Sources */,
+				572CF2E1285A013800E5A75F /* QuizModel.swift in Sources */,
 				57FC092528425FE200A0109C /* DataController.swift in Sources */,
 				5724C7B52858FCBC00A5EC27 /* SimboloMapas.swift in Sources */,
 				57381CEB282FCCFD00B8EF38 /* ResultsCViewController.swift in Sources */,
+				572CF2DF285A012E00E5A75F /* FinalView.swift in Sources */,
 				57FC092328425FB600A0109C /* BD.xcdatamodeld in Sources */,
 				57D915C527FCDD5300715552 /* CapitaesdeAreiaApp.swift in Sources */,
 				579AC60D2850D3FB00C2C824 /* testandoBiding.swift in Sources */,
 				573F118F2858B87E0034D58B /* ImagePicker.swift in Sources */,
 				57545DA12805EABC00B19B26 /* MyPageView.swift in Sources */,
+				572CF2E5285A014800E5A75F /* QuizView.swift in Sources */,
 				573F118D2858B8220034D58B /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

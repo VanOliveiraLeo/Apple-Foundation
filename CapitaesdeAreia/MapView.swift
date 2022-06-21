@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 import CoreLocation
+import UserNotifications
 
 struct Place: Identifiable {
     let id = UUID()
@@ -37,7 +38,7 @@ struct MapView: View {
                     Text("mapa")
                         .offset(y: 13)
                         .foregroundColor(.white)
-                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .font(.system(size: 20, weight: .heavy, design: .default))
                         .textCase(.uppercase)
                         .frame(width: UIScreen.main.bounds.size.width, height: 20, alignment: .center)
                     
@@ -74,7 +75,7 @@ struct MapView: View {
                                     .foregroundColor(Color.init(red: 0/255, green: 255/255, blue: 0/255, opacity: 0.2))
                                     .frame(width: size.0, height: size.1)
 //                                    .animation(.linear)
-                                `
+                                
                                 SimboloMapas()
                                     
                                 
@@ -106,8 +107,10 @@ struct MapView: View {
                 
                 
             }
+            
             .ignoresSafeArea()
         }
+        
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color.init(red: 235/255, green: 235/255, blue: 235/255))
@@ -253,7 +256,7 @@ struct ModalCadastro: View {
     @State var geocoder = CLGeocoder()
     func callGeoCoder() {
         
-        geocoder.geocodeAddressString("Rua \(rua), \(numero), \(cidade), \(estado)") {
+        geocoder.geocodeAddressString("\(ChecarRua()) \(rua), \(numero), \(cidade), \(estado)") {
             placemarks, error in
             let placemark = placemarks?.first
             let lat = placemark?.location?.coordinate.latitude
@@ -286,13 +289,14 @@ struct ModalCadastro: View {
         
     }
     @State var showAlert = false
-    @State var alertTitle: String = ""
-    @State var alertMessage: String = ""
+    @State var alertTitle: String = "ERRO!"
+    @State var alertMessage: String = "Digite os dados novamente"
     
     func checkValuesVar() -> Bool{
-        if(rua.count == 0 || numero.count == 0 || rua.count < 5){
+        if(rua.count == 0 || numero.count == 0 || rua.count < 5 || Int(numero) == nil){
             rua = ""
             numero = ""
+            
             showAlert = true
             alertTitle = "Erro!"
             alertMessage = "Digite os dados novamente!"
@@ -341,6 +345,19 @@ struct ModalCadastro: View {
     
     @FetchRequest(sortDescriptors: []) var students: FetchedResults<MapEntity>
     @Environment(\.managedObjectContext) var moc
+    
+    func ChecarRua() -> String{
+        var lista = rua.components(separatedBy: " ")
+        
+        for i in lista{
+            if i.uppercased() == "RUA"{
+                return ""
+            }else{
+                return "Rua"
+            }
+        }
+        return ""
+    }
     
     
     var body: some View {
@@ -521,8 +538,13 @@ struct ModalCadastro: View {
                 
                 
                 if zstack == (-400,0,400){
-                    if checkValuesVar() {
-                        zstack = (-400,-400,0)
+                    if Int(numero) == nil {
+                        showAlert = true
+                    }else{
+                        showAlert = false
+                        if checkValuesVar() {
+                            zstack = (-400,-400,0)
+                        }
                     }
                 } else if zstack == (-400,-400,0){
                     if checkValuesVar() == true{
@@ -540,19 +562,21 @@ struct ModalCadastro: View {
             }
             .frame(width: UIScreen.main.bounds.size.width, height: 20, alignment: .center)
             .offset(y: 10)
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text(alertTitle),
-                    message: Text(alertMessage),
-                    dismissButton: .default(
-                        Text("Ok!")
-                    )
-                )
-            }
             
             
         }
         .frame(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 100)
+        .alert(isPresented: $showAlert) {
+            zstack = (0,400,400)
+            return Alert(
+                title: Text(alertTitle),
+                message: Text(alertMessage),
+                dismissButton: .default(
+                    Text("Ok!")
+                )
+            )
+            
+        }
     }
     
 }
